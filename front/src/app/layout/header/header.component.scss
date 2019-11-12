@@ -1,0 +1,22 @@
+header {
+  display: flex;
+  align-items: center;
+  background: #eee;
+  height: 3em;
+  padding: 0 0.5em;
+}
+
+img {
+  height: 2em;
+  padding-right: 0.5em;
+}
+
+a {
+  display: flex;
+  align-items: center;
+}
+
+span {
+  font-size: 1.3em;
+  font-weight: bold;
+}
