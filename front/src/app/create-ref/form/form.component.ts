@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { ReferenceService } from 'src/app/service/reference.service';
 
 @Component({
   selector: 'app-form',
@@ -15,12 +16,13 @@ export class FormComponent implements OnInit {
     quantity: new FormControl('100', Validators.required)
   });
 
-  constructor(private router: Router) {}
+  constructor(private router: Router, private reference: ReferenceService) {}
 
   ngOnInit() {}
 
   submit() {
     console.log('submit');
+    this.reference.add(this.f.value as Reference);
     this.router.navigateByUrl('/success');
   }
 }
