@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-form',
@@ -14,7 +15,12 @@ export class FormComponent implements OnInit {
     quantity: new FormControl('100', Validators.required)
   });
 
-  constructor() {}
+  constructor(private router: Router) {}
 
   ngOnInit() {}
+
+  submit() {
+    console.log('submit');
+    this.router.navigateByUrl('/success');
+  }
 }

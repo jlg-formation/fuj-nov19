@@ -1,6 +1,6 @@
 <main>
   <h1>Saisie référence</h1>
-  <form [formGroup]="f">
+  <form [formGroup]="f" (ngSubmit)="submit()">
     <label>
       <div>Libéllé du produit</div>
       <input type="text" formControlName="label" placeholder="Ex: Tournevis" />
@@ -19,7 +19,7 @@
     </label>
     <div class="buttons">
       <button type="button" routerLink="/">Annuler</button>
-      <button type="button" routerLink="/success" class="primary" [disabled]="f.invalid">Ajouter</button>
+      <button type="submit" class="primary" [disabled]="f.invalid">Ajouter</button>
     </div>
   </form>
 </main>
