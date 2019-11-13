@@ -1,8 +1,11 @@
 const express = require('express');
 const serveIndex = require('serve-index');
+const cors = require('cors');
 
 const app = express();
 const port = 3000;
+
+app.use(cors());
 
 app.use((req, res, next) => {
   console.log('url', req.url);
