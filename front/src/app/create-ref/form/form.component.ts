@@ -14,7 +14,7 @@ export class FormComponent implements OnInit {
     label: new FormControl('Tournevis cruciforme taille 3 Facom', Validators.required),
     category: new FormControl('Outils - Quincaillerie', Validators.required),
     price: new FormControl('', Validators.required),
-    quantity: new FormControl('100', Validators.required)
+    quantity: new FormControl(100, Validators.required)
   });
 
   constructor(private router: Router, private reference: ReferenceService) {}

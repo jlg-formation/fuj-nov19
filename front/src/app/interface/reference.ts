@@ -1,6 +1,6 @@
 export interface Reference {
   label: string;
   category: string;
-  price: string;
-  quantity: string;
+  price: number;
+  quantity: number;
 }
