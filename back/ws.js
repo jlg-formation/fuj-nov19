@@ -1,10 +1,28 @@
 const express = require('express');
+const fs = require('fs');
+const path = require('path');
 const app = express.Router();
 
 module.exports = app;
 
+const filename = path.resolve(__dirname, './data.json');
+
+let id = 0;
+let references = [];
+try {
+  const str = fs.readFileSync(filename, { encoding: 'utf8' });
+  references = JSON.parse(str);
+  id = references[references.length - 1].id;
+} catch (error) {}
+
+app.use(express.json());
+
 app.post('/reference', (req, res, next) => {
-  res.status(201).json({ id: 'titi' });
+  id++;
+  req.body.id = id;
+  references.push(req.body);
+  fs.writeFileSync(filename, JSON.stringify(references));
+  res.status(201).json(req.body);
 });
 
 app.get('/reference', (req, res, next) => {
