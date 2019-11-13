@@ -5,7 +5,7 @@ import { Reference } from '../interface/reference';
   providedIn: 'root'
 })
 export class ReferenceService {
-  refSet = new Set<Reference>();
+  refSet = this.getRefSet();
   constructor() {}
 
   add(reference: Reference) {
@@ -18,5 +18,11 @@ export class ReferenceService {
     localStorage.setItem('refset', JSON.stringify([...this.refSet]));
   }
 
-
+  getRefSet() {
+    const str = localStorage.getItem('refset');
+    if (!str) {
+      return new Set<Reference>();
+    }
+    return new Set(JSON.parse(str));
+  }
 }
