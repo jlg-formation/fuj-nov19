@@ -1,25 +1,25 @@
 <main>
   <h1>Saisie référence</h1>
-  <form>
+  <form [formGroup]="f">
     <label>
       <div>Libéllé du produit</div>
-      <input type="text" />
+      <input type="text" formControlName="label" placeholder="Ex: Tournevis" />
     </label>
     <label>
       <div>Catégorie</div>
-      <input type="text" />
+      <input type="text" formControlName="category" placeholder="Ex: EPI"/>
     </label>
     <label>
       <div>Prix d'achat</div>
-      <input type="text" />
+      <input type="number" formControlName="price" placeholder="En euros" />
     </label>
     <label>
       <div>Quantité</div>
-      <input type="text" />
+      <input type="number" formControlName="quantity" />
     </label>
     <div class="buttons">
       <button type="button" routerLink="/">Annuler</button>
-      <button type="button" routerLink="/success" class="primary">Ajouter</button>
+      <button type="button" routerLink="/success" class="primary" [disabled]="f.invalid">Ajouter</button>
     </div>
   </form>
 </main>
