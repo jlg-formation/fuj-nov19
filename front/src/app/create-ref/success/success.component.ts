@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { faCoffee } from '@fortawesome/free-solid-svg-icons';
+import { faSmile } from '@fortawesome/free-regular-svg-icons';
 
 @Component({
   selector: 'app-success',
@@ -7,7 +7,7 @@ import { faCoffee } from '@fortawesome/free-solid-svg-icons';
   styleUrls: ['./success.component.scss']
 })
 export class SuccessComponent implements OnInit {
-  faCoffee = faCoffee;
+  faSmile = faSmile;
 
   constructor() {}
 
