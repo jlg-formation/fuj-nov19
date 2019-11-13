@@ -18,11 +18,16 @@ export class ReferenceService {
     localStorage.setItem('refset', JSON.stringify([...this.refSet]));
   }
 
-  getRefSet() {
+  getRefSet(): Set<Reference> {
     const str = localStorage.getItem('refset');
     if (!str) {
       return new Set<Reference>();
     }
-    return new Set(JSON.parse(str));
+    try {
+      const obj = JSON.parse(str);
+      return new Set<Reference>(obj);
+    } catch (err) {
+      return new Set<Reference>();
+    }
   }
 }
