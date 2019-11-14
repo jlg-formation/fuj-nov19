@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ReferenceService } from './service/reference.service';
 
 @Component({
   selector: 'app-root',
@@ -6,9 +7,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'front';
-
-  toto() {
-    console.log('toto');
-  }
+  constructor(private reference: ReferenceService) {}
 }
