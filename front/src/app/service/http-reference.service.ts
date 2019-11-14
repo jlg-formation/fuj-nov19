@@ -2,10 +2,9 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { ReferenceService } from './reference.service';
 import { Reference } from '../interface/reference';
-import { environment } from 'src/environments/environment';
 import { WebSocketSubject } from 'rxjs/webSocket';
 
-const url = environment.url;
+const url = './ws/reference';
 
 @Injectable({
   providedIn: 'root'
