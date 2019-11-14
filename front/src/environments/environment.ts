@@ -4,7 +4,8 @@
 
 export const environment = {
   production: false,
-  stockLabel: 'stock: '
+  stockLabel: 'stock: ',
+  url: 'http://localhost:3000/ws/reference'
 };
 
 /*
