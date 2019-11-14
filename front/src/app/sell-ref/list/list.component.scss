@@ -1,5 +1,12 @@
+:host {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+}
+
 main {
   justify-content: flex-start;
+  width: 90%;
 }
 
 .table {
@@ -21,6 +28,13 @@ main {
   &:nth-child(odd) {
     background: #eee;
   }
+
+  @media screen and (min-width: 768px) {
+    grid-template-areas:
+    'mylabel mycategory price quantity';
+    padding: 1em 0.5em;
+  }
+
 }
 
 .label {
