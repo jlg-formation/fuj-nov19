@@ -21,7 +21,7 @@ app.post('/reference', (req, res, next) => {
   id++;
   req.body.id = id;
   references.push(req.body);
-  fs.writeFileSync(filename, JSON.stringify(references));
+  fs.writeFileSync(filename, JSON.stringify(references, null, 2));
   res.status(201).json(req.body);
 });
 
