@@ -37,6 +37,7 @@ app.post('/reference', async (req, res, next) => {
   res.status(201).json(reference.toObject());
 });
 
-app.get('/reference', (req, res, next) => {
-  res.json([1, 2, 4]);
+app.get('/reference', async (req, res, next) => {
+  const references = await Reference.find({});
+  res.json(references.map(r => r.toObject()));
 });
