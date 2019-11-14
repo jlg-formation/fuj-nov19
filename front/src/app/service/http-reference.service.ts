@@ -25,6 +25,7 @@ export class HttpReferenceService extends ReferenceService {
     this.socket$.subscribe(
       message => {
         console.log('message: ', message);
+        this.fetch();
       },
       err => console.error(err),
       () => console.log('Completed!')
