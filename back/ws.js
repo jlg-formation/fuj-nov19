@@ -1,28 +1,40 @@
 const express = require('express');
 const fs = require('fs');
 const path = require('path');
+const mongoose = require('mongoose');
 const app = express.Router();
 
 module.exports = app;
 
-const filename = path.resolve(__dirname, './data.json');
+const Reference = mongoose.model(
+  'Reference',
+  new mongoose.Schema(
+    {
+      label: { type: String, required: true },
+      category: { type: String, required: true },
+      price: { type: Number, required: true },
+      quantity: { type: Number, required: true }
+    },
+    { strict: true }
+  )
+);
 
-let id = 0;
-let references = [];
-try {
-  const str = fs.readFileSync(filename, { encoding: 'utf8' });
-  references = JSON.parse(str);
-  id = references[references.length - 1].id;
-} catch (error) {}
+async function init() {
+  await mongoose.connect('mongodb://localhost/shoshop', {
+    useNewUrlParser: true,
+    useCreateIndex: true,
+    useUnifiedTopology: true
+  });
+}
+
+init();
 
 app.use(express.json());
 
-app.post('/reference', (req, res, next) => {
-  id++;
-  req.body.id = id;
-  references.push(req.body);
-  fs.writeFileSync(filename, JSON.stringify(references, null, 2));
-  res.status(201).json(req.body);
+app.post('/reference', async (req, res, next) => {
+  const reference = new Reference(req.body);
+  await reference.save();
+  res.status(201).json(reference.toObject());
 });
 
 app.get('/reference', (req, res, next) => {
