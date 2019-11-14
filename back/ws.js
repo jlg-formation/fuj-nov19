@@ -3,6 +3,7 @@ const fs = require('fs');
 const path = require('path');
 const mongoose = require('mongoose');
 const app = express.Router();
+const { notify } = require('./notify');
 
 module.exports = app;
 
@@ -34,6 +35,7 @@ app.use(express.json());
 app.post('/reference', async (req, res, next) => {
   const reference = new Reference(req.body);
   await reference.save();
+  notify();
   res.status(201).json(reference.toObject());
 });
 

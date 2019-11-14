@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { ReferenceService } from './reference.service';
 import { Reference } from '../interface/reference';
 import { environment } from 'src/environments/environment';
+import { WebSocketSubject } from 'rxjs/webSocket';
 
 const url = environment.url;
 
@@ -10,10 +11,24 @@ const url = environment.url;
   providedIn: 'root'
 })
 export class HttpReferenceService extends ReferenceService {
+  private socket$: WebSocketSubject<any>;
+
   constructor(private http: HttpClient) {
     super();
     console.log('http service');
     this.fetch();
+    this.socket$ = new WebSocketSubject({
+      url: 'ws://localhost:3000',
+      deserializer: x => x
+    });
+
+    this.socket$.subscribe(
+      message => {
+        console.log('message: ', message);
+      },
+      err => console.error(err),
+      () => console.log('Completed!')
+    );
   }
 
   add(reference: Reference) {
