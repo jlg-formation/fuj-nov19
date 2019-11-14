@@ -1,0 +1,48 @@
+main {
+  justify-content: flex-start;
+}
+
+.table {
+  width: 100%;
+  border: 0.1em solid #eee;
+  margin-bottom: 1em;
+}
+
+.row {
+  display: grid;
+  grid-template-columns: auto;
+  grid-template-rows: auto;
+  grid-template-areas:
+    'mylabel mylabel mylabel'
+    'mycategory mycategory mycategory'
+    'price . quantity';
+  padding: 0.5em 0.3em;
+
+  &:nth-child(odd) {
+    background: #eee;
+  }
+}
+
+.label {
+  grid-area: mylabel;
+  font-weight: bold;
+}
+.category {
+  grid-area: mycategory;
+}
+.price {
+  grid-area: price;
+}
+.quantity {
+  grid-area: quantity;
+  justify-self: self-end;
+}
+
+$label-color: #888;
+
+.qty-label {
+  color: $label-color;
+}
+.qty-val {
+  font-weight: bold;
+}
