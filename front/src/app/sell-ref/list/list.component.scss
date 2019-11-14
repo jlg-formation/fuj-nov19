@@ -30,6 +30,7 @@ main {
   }
 
   @media screen and (min-width: 768px) {
+    grid-template-columns: auto 10em 3em 6em;
     grid-template-areas:
     'mylabel mycategory price quantity';
     padding: 1em 0.5em;

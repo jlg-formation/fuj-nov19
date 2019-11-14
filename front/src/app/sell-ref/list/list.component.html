@@ -1,13 +1,13 @@
 <main>
   <h1>Liste des références</h1>
   <div class="table">
-    <div *ngFor="let r of [1, 2, 3, 4, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]" class="row">
-      <span class="label">Tournevis cruciforme taille 3 Facom</span>
-      <span class="category">Outils Quincaillerie</span>
-      <span class="price">3.20€</span>
+    <div *ngFor="let r of reference.refSet" class="row">
+      <span class="label">{{ r.label }}</span>
+      <span class="category">{{ r.category }}</span>
+      <span class="price">{{ r.price }}€</span>
       <span class="quantity">
         <span class="qty-label">{{ stockLabel }}</span>
-        <span class="qty-val">34</span>
+        <span class="qty-val">{{r.quantity}}</span>
       </span>
     </div>
   </div>
