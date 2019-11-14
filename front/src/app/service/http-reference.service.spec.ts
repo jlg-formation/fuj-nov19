@@ -1,9 +1,12 @@
 import { TestBed } from '@angular/core/testing';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 
 import { HttpReferenceService } from './http-reference.service';
 
 describe('HttpReferenceService', () => {
-  beforeEach(() => TestBed.configureTestingModule({}));
+  beforeEach(() => TestBed.configureTestingModule({
+    imports: [HttpClientTestingModule],
+  }));
 
   it('should be created', () => {
     const service: HttpReferenceService = TestBed.get(HttpReferenceService);

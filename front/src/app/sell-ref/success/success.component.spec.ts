@@ -1,6 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { SuccessComponent } from './success.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 describe('SuccessComponent', () => {
   let component: SuccessComponent;
@@ -8,9 +9,9 @@ describe('SuccessComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ SuccessComponent ]
-    })
-    .compileComponents();
+      imports: [FontAwesomeModule],
+      declarations: [SuccessComponent]
+    }).compileComponents();
   }));
 
   beforeEach(() => {
