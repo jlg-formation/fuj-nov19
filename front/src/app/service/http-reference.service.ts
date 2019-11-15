@@ -6,6 +6,8 @@ import { WebSocketSubject } from 'rxjs/webSocket';
 
 const url = './ws/reference';
 
+const host = window.location.host;
+
 @Injectable({
   providedIn: 'root'
 })
@@ -17,7 +19,7 @@ export class HttpReferenceService extends ReferenceService {
     console.log('http service');
     this.fetch();
     this.socket$ = new WebSocketSubject({
-      url: 'ws://localhost:3000',
+      url: `ws://${host}/stream`,
       deserializer: x => x
     });
 

@@ -2,5 +2,11 @@
   "/ws": {
     "target": "http://localhost:3000",
     "secure": false
+  },
+
+  "/stream/*": {
+    "target": "ws://localhost:3000",
+    "secure": false,
+    "ws": true
   }
 }
