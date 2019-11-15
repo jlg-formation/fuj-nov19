@@ -8,4 +8,9 @@ export class AppPage {
   getTitleText() {
     return element(by.css('header span')).getText() as Promise<string>;
   }
+
+  async clickOnButtonEnterReference() {
+    const button = element(by.css('button'));
+    await button.click();
+  }
 }
