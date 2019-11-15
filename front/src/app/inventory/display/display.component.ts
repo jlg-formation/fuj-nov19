@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
+
+
 declare global {
   const Plotly: any;
 }
