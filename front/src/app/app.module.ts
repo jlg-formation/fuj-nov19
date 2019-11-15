@@ -11,10 +11,11 @@ import { ReferenceService } from './service/reference.service';
 import { HttpReferenceService } from './service/http-reference.service';
 import { HttpClientModule } from '@angular/common/http';
 import { SellRefModule } from './sell-ref/sell-ref.module';
+import { InventoryModule } from './inventory/inventory.module';
 
 @NgModule({
   declarations: [AppComponent, HomeComponent, LegalComponent],
-  imports: [BrowserModule, AppRoutingModule, LayoutModule, CreateRefModule, HttpClientModule, SellRefModule],
+  imports: [BrowserModule, AppRoutingModule, LayoutModule, CreateRefModule, HttpClientModule, SellRefModule, InventoryModule],
   providers: [{ provide: ReferenceService, useClass: HttpReferenceService }],
   bootstrap: [AppComponent]
 })
